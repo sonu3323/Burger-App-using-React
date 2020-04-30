@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Au from "../../hoc/Au";
 
 import styles from "./Layout.module.css";
+import Toolbar from '../Navigation/Toolbar/Toolbar';
+import SlideDrawer from '../Navigation/SlideDrawer/SlideDrawer';
 
 const  Layout=(props) => {
-return (
+   
+  const [showSiderDrawer , setShowSiderDrawer] = useState(false)
+  console.log(showSiderDrawer)
+
+  const SideDrawerClosedHandler = () => {
+    setShowSiderDrawer(prevState => !prevState)
+  }
+
+  const showSideHandler=()=>{
+    
+     setShowSiderDrawer(prevState =>  !prevState)
+    
+  }
+
+
+   return (
       <Au>
-    <div>Toolbar , SlideBar , Backdrop</div>
+      <Toolbar  menu={showSideHandler}/> 
+      <SlideDrawer open={showSiderDrawer} closed={SideDrawerClosedHandler} /> 
     <main className={styles.Content}>
         {props.children}
     </main>
