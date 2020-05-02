@@ -9,8 +9,8 @@ const Toolbar=(props)=> (
 <header className={styles.Toolbar}>
        <DrawerToggle menu={props.menu} />
         <Logo height="80%" />
-    <div className={styles.DesktopOnly}>
-    <NavigationItmes />
+       <div className={styles.DesktopOnly}>
+       <NavigationItmes />
     </div>
 </header>
 

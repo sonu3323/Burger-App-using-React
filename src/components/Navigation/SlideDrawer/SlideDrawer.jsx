@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./Slider.module.css"
 import Logo from "../../Logo/Logo";
 import NavigationItems from "../Navigationitems/NavigationItems"
-import Au from '../../../hoc/Au';
+import Au from '../../../hoc/Au/Au';
 import Backdrop from "../../Ui/BackDrop/BackDrop"
 
 
@@ -21,7 +21,6 @@ const SlideDrawer = (props) => {
            <div className={styles.Logo}>
             <Logo />
             </div>
-        
             <nav>
                 <NavigationItems />
             </nav>

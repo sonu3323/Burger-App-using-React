@@ -1,25 +1,39 @@
-import React from 'react';
+import React ,{ Component }  from 'react';
 import styles from "./Modle.module.css";
-import Au from '../../../hoc/Au';
+import Au from '../../../hoc/Au/Au';
 import BackDrop from '../BackDrop/BackDrop';
 
-function Model(props) {
+class Model extends Component {
+   
+
+ // This Component only render If the props is change ****
+    shouldComponentUpdate(nextProps , nextState) {
+      
+        return nextProps.show !== this.props.show || nextProps.children !==this.props.children;
+    
+    }
+
+
+   render(){
+   
     return (
        <Au>
-        <BackDrop show={props.show} 
-        clicked={props.modelClosed}
+        <BackDrop show={this.props.show} 
+        clicked={this.props.modelClosed}
         />
         <div className={styles.Modal}
         style={{
-            transform: props.show ? 'translateY(0)' : 'translate(-100vh)',
-            opacity: props.show ? '1': '0'
+            transform: this.props.show ? 'translateY(0)' : 'translate(-100vh)',
+            opacity: this.props.show ? '1': '0'
         }}
         >
-            {props.children}
+            {this.props.children}
            
         </div>
         </Au>
     )
+}
+
 }
 
 export default Model;

@@ -13,9 +13,12 @@ const controls = [
 ]
 
 
+
+
 function BuildControl(props) {
     return (
         <div className={styles.BuildControls}>
+         <p className={styles.name}>@Sonu Sharma {new Date().getFullYear()} </p>
           <p className={styles.para}>Current Price: {props.price} &#8377;</p>
           { controls.map(ctrl => (
               <BuildControls 

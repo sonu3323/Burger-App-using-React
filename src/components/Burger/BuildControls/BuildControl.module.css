@@ -6,19 +6,24 @@
     align-items: center;
     box-shadow: 0 2x 1px #ccc;
     margin: auto;
-    padding:26px 0px;
+    padding:20px 0px;
     font-weight: bold;
     
 }
 
 .para {
+    margin-top: -5px;
     font-size: 1.6rem;
-    padding:16px 0px;
     border-bottom: 1px solid black;
     
 }
 
-
+.name {
+    font-size: 1.6rem;
+    margin-top:-20px;
+    opacity: 0.5;    
+    
+}
 
 .OrderButton {
     background-color: #DAD735;
