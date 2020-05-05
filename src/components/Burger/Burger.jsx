@@ -1,12 +1,13 @@
 import React from 'react';
 import BurgerIngedient from './BurgerIngedient';
-
 import styles from "./Burgeringredient.module.css";
 
 
 
 function Burger(props) {
   
+  console.log(props)
+
   let transformedIngredients = Object.keys(props.ingredients)
   .map(igKay => {
     
@@ -33,4 +34,4 @@ function Burger(props) {
     )
 }
 
-export default Burger
+export default Burger;

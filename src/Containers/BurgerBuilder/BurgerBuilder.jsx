@@ -30,6 +30,8 @@ const INGREDIENT_PRICES = {
   
 
     componentDidMount() {
+      
+      console.log(this.props)
         axios.get("https://react-my-burger-547ea.firebaseio.com/ingredients.json")
         .then((Response) => {
            this.setState({ ingredients : Response.data })
@@ -120,39 +122,51 @@ const INGREDIENT_PRICES = {
         //axios for post the data in our dataBase
      
         //Object to store the data in dataBase to assign obj in axios
-       this.setState({ loading: true })
-        const order = {
-           imgredients : this.state.ingredients ,
-           price: this.state.totalPrice ,
-           customer: {
-               name: "Sonu sharma" ,
-               address: {
-                   city: 'Ateli ',
-                   dist: 'Mohinder Garh',
-                   state: "Haryana"
-                } ,
-                email: "test@gmail.com" ,
-                mob: 8708161926
-           } ,
+    //    this.setState({ loading: true })
+    //     const order = {
+    //        imgredients : this.state.ingredients ,
+    //        price: this.state.totalPrice ,
+    //        customer: {
+    //            name: "Sonu sharma" ,
+    //            address: {
+    //                city: 'Ateli ',
+    //                dist: 'Mohinder Garh',
+    //                state: "Haryana"
+    //             } ,
+    //             email: "test@gmail.com" ,
+    //             mob: 8708161926
+    //        } ,
 
-        deliveryMethod: "fastest"
-       };
+    //     deliveryMethod: "fastest"
+    //    };
        
-        axios.post('/orders.json' , order)
-        .then((Response=> {
-            console.log(Response);
-            this.setState({ loading: false , orderSummary: false});
-        }))
-        .catch(error=> {
-            console.log(error);
-            this.setState({ loading:false , orderSummary: false});
-        })
-
+    //     axios.post('/orders.json' , order)
+    //     .then((Response=> {
+    //         console.log(Response);
+    //         this.setState({ loading: false , orderSummary: false});
+    //     }))
+    //     .catch(error=> {
+    //         console.log(error);
+    //         this.setState({ loading:false , orderSummary: false});
+    //     })
+           
+              const queryParams = [];
+              for(let i in this.state.ingredients) {
+                  queryParams.push(`${encodeURIComponent(i)}=${encodeURIComponent(this.state.ingredients[i])}`)
+              }
+             
+              const queryString  = queryParams.join("&");
+             
+           console.log(queryString)
+                this.props.history.push({
+                 pathname: "checkout" ,
+                 search: "?" + queryString
+             });
     };
 
     
 
-    render() {
+     render() {
       
         //Disabled the less button ****
         const disabledInfo = {
