@@ -8,7 +8,9 @@
     box-sizing: border-box;
     
 }
-
+.ContactText{
+  text-shadow: 0 0 5px white;  
+}
 
 .Input {
     display:block;

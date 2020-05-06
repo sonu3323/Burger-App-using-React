@@ -6,7 +6,7 @@ import styles from "./CheckoutSummary.module.css";
 const CheckoutSummary = (props) => {
     return (
         <div className={styles.CheckoutSummary}>
-            <h1>LOOKING SO DELICIOUS!</h1>
+            <h1>LOOKS SO DELICIOUS!</h1>
            
             <div style={{margin: "auto" , width:"100%" }}>
            
