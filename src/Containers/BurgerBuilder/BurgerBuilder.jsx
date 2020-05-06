@@ -155,9 +155,10 @@ const INGREDIENT_PRICES = {
                   queryParams.push(`${encodeURIComponent(i)}=${encodeURIComponent(this.state.ingredients[i])}`)
               }
              
+              queryParams.push("price= " + this.state.totalPrice)
               const queryString  = queryParams.join("&");
              
-           console.log(queryString)
+            console.log(queryString)
                 this.props.history.push({
                  pathname: "checkout" ,
                  search: "?" + queryString
