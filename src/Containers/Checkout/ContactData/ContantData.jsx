@@ -56,7 +56,7 @@ class ContactData extends Component {
             mob: {
                 elementType: 'tel',
                 elementConfig: {
-                    type: 'text',
+                    type: 'tel',
                     placeholder: 'Mobile Number'
                 },
                 value: '',
