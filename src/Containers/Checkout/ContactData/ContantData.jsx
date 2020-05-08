@@ -15,7 +15,8 @@ class ContactData extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Your Name'
+                    placeholder: 'Your Name',
+                    required: "required"
                 },
                 value: '',
                 validation: {
@@ -28,7 +29,8 @@ class ContactData extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Street'
+                    placeholder: 'Street',
+                    required: "required"
                 },
                 value: '',
                 validation: {
@@ -41,7 +43,8 @@ class ContactData extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'ZIP Code'
+                    placeholder: 'ZIP Code',
+                    required: "required"
                 },
                 value: '',
                 validation: {
@@ -57,7 +60,8 @@ class ContactData extends Component {
                 elementType: 'tel',
                 elementConfig: {
                     type: 'tel',
-                    placeholder: 'Mobile Number'
+                    placeholder: 'Mobile Number',
+                    required: "required"
                 },
                 value: '',
                 validation: {
@@ -70,7 +74,8 @@ class ContactData extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
-                    placeholder: 'Your E-Mail'
+                    placeholder: 'Your E-Mail',
+                    required: "required"
                 },
                 value: '',
                 validation: {
@@ -192,7 +197,7 @@ class ContactData extends Component {
                         touched={formElement.config.touched}
                         changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
-                <Button btnType="Success" disabled={!this.state.formIsValid}>ORDER</Button>
+                <Button btnType="Success" >ORDER</Button>
             </form>
         );
         if ( this.state.loading ) {
