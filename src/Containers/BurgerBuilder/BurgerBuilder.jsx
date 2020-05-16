@@ -8,7 +8,7 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import WithErrorHandler from "../../hoc/WithErrorHandler/WithErrorHandler"
 import axios from "../../axios-orders";
 import Spinner from '../../components/Ui/Spinner/Spinner';
-import * as actionTypes from "../../store/action";
+import * as actionTypes from "../../store/actions/action";
 
 
 //Price for the ingredients
