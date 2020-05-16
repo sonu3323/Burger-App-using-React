@@ -52,12 +52,11 @@ import * as actions from "../../store/actions/index";
     }
   
     purchaseHandler=()=> {
-      this.setState({orderSummary: false});
+         this.setState({orderSummary: false});
      }
   
   
-     purchaseContiueHandler=()=> {
-        
+     purchaseContiueHandler=()=> { 
         this.props.onInitPurchase();
         this.props.history.push("/checkout");
     };
@@ -113,7 +112,6 @@ import * as actions from "../../store/actions/index";
                 { burger }
                </Au> 
         );
-        
     }
 };
 
@@ -128,13 +126,11 @@ const mapStatetoProps = state => {
 
 const mapDispatchtoProps = dispatch => {
 return {
-
     onIngredientAdded: (ingName) => dispatch(actions.addIngredient(ingName)),
     onIngredientRemoved: (ingName) => dispatch(actions.removeIngredient(ingName)),
     onInitIngredients: () => dispatch(actions.initIngredients()),
     onInitPurchase: () => dispatch(actions.purchaseInit())
-
-}
+   }
 
 };
 

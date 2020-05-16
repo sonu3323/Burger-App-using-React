@@ -8,7 +8,8 @@ initIngredients ,
 
 export { 
     purchaseBurger ,
-    purchaseInit
+    purchaseInit ,
+    fetchOrder
 
 
 } from "./order";
