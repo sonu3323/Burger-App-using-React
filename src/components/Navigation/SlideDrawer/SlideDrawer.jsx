@@ -22,7 +22,7 @@ const SlideDrawer = (props) => {
             <Logo />
             </div>
             <nav>
-                <NavigationItems />
+                <NavigationItems iaAuthenticated={props.isAuth} />
             </nav>
         </div>
         </Au>

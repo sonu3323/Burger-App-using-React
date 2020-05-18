@@ -33,7 +33,7 @@ function BuildControl(props) {
         <button className={styles.OrderButton}
         disabled={!props.purchaseable}
         onClick={props.orderSummary}
-        >ORDER NOW</button>
+        >{ props.isAuth ? 'ORDER NOW': 'Signup To Order' }</button>
         </div>
     );
 }

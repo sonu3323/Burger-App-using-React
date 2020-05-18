@@ -4,6 +4,7 @@ import Au from "../Au/Au";
 import styles from "./Layout.module.css";
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SlideDrawer from '../../components/Navigation/SlideDrawer/SlideDrawer';
+import { connect } from 'react-redux';
 
 const  Layout=(props) => {
    
@@ -22,8 +23,11 @@ const  Layout=(props) => {
 
    return (
       <Au>
-      <Toolbar menu={showSideHandler}/> 
-      <SlideDrawer open={showSiderDrawer} closed={SideDrawerClosedHandler} /> 
+      <Toolbar isAuth={props.isAuthenticated} 
+        menu={showSideHandler}/> 
+      <SlideDrawer
+      isAuth={props.isAuthenticated}
+      open={showSiderDrawer} closed={SideDrawerClosedHandler} /> 
     <main className={styles.Content}>
         {props.children}
     </main>
@@ -31,4 +35,10 @@ const  Layout=(props) => {
 )
 };
 
-export default Layout
+const mapStateToProps = state =>{
+  return {
+    isAuthenticated: state.auth.token !=null
+  }
+}
+
+export default connect(mapStateToProps)(Layout);
