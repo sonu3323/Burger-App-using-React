@@ -22,7 +22,6 @@ import * as actions from "../../store/actions/index";
 
     componentDidMount() {
       
-      console.log(this.props);
       this.props.onInitIngredients();
     }
       

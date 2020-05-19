@@ -6,7 +6,6 @@ import styles from "./Burgeringredient.module.css";
 
 function Burger(props) {
   
-  console.log(props)
 
   let transformedIngredients = Object.keys(props.ingredients)
   .map(igKay => {
@@ -20,7 +19,6 @@ function Burger(props) {
      return arr.concat(el)
       }, [] )
   
-  console.log(transformedIngredients)
   
   if(transformedIngredients.length === 0){
     transformedIngredients = <p>Please Start Adding Ingredients!</p>

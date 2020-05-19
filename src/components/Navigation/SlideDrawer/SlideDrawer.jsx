@@ -14,11 +14,14 @@ const SlideDrawer = (props) => {
    }
 
 
+   
+
+
     return (
        <Au>
        <Backdrop show={props.open} clicked={props.closed}/>
-       <div className={attachedClasses.join(' ')}>
-           <div className={styles.Logo}>
+       <div className={attachedClasses.join(' ')} onClick={props.closed} >
+           <div className={styles.Logo} >
             <Logo />
             </div>
             <nav>

@@ -6,6 +6,9 @@
     border: 1px solid #eee;
     padding: 10px;
     box-sizing: border-box;
+    margin-top:10%;
+    box-shadow: 0 0 10px pink;
+
     
 }
 .ContactText{
@@ -19,5 +22,14 @@
 @media (min-width: 600px) {
     .Auth {
         width:500px;
+        
+    }
+}
+
+@media (max-width: 500px) {
+    .Auth {
+        
+        margin-top:50%;
+        box-shadow: 0 0 10px pink;
     }
 }
