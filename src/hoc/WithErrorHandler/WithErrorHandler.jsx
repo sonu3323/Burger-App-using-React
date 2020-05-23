@@ -1,56 +1,54 @@
-import React, { Component } from 'react';
+import React, { useEffect ,useState } from 'react';
 import Model from '../../components/Ui/Model/Model';
 import Au from '../Au/Au';
 
 
 
-const WithErrorHandler = ( WrappedComponent , axios) => {
+const withErrorHandler = ( WrappedComponent , axios) => {
     
     
-    return class extends Component {
+    return props => {
       
-        state = {
-            error: null
-        }
-         
+        const [error , seterror] = useState(null)
         
-        componentWillMount(){
-           this.reqInterceptors =  axios.interceptors.request.use(req=> {
-                this.setState({ error: null });
+        const reqInterceptors =  axios.interceptors.request.use(req=> {
+                seterror(null);
                 return req
-            })
+        });
             
-           this.resinterceptors =  axios.interceptors.response.use(res => res , error=>{
-                this.setState({ error: error })
+          const resinterceptors =  axios.interceptors.response.use(res => res , error=>{
+                seterror(error)
             })
-        };
+       
 
 
-        componentWillUnmount() {
-            axios.interceptors.request.eject(this.reqInterceptors);
-            axios.interceptors.response.eject(this.resinterceptors);
-        }
+        useEffect(()=>{
+            return ()=>{
+                axios.interceptors.request.eject(reqInterceptors);
+                axios.interceptors.response.eject(resinterceptors);
+            };
+        }, [reqInterceptors , resinterceptors]);
+      
         
         //HIde the model of Error **
-        errorConfirmedHandler = () => {
-            this.setState({error: null})
+       const errorConfirmedHandler = () => {
+            seterror(null)
         }
 
-        render() {
             return (
                 <Au>
-                  <Model show={this.state.error}
-                   modelClosed={this.errorConfirmedHandler}
+                  <Model show={error}
+                   modelClosed={errorConfirmedHandler}
                    >
-                   {this.state.error ? this.state.error.message : null}
+                   {error ? error.message : null}
                   </Model>
-                  <WrappedComponent {...this.props} />
+                  <WrappedComponent {...props} />
                   </Au>
               ); 
         }
        
-    }
+    
 
 }
 
-export default WithErrorHandler;
+export default withErrorHandler;

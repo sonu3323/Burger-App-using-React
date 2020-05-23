@@ -1,18 +1,16 @@
-import React, { Component } from 'react'
+import React  from 'react'
 import Au from '../../../hoc/Au/Au';
 import styles from "./OrderSummary.module.css";
 import Button from "../../Ui/Button/Button"
 
 
-class OrderSummary extends Component {
+const OrderSummary = props => {
 
    
-
-    render() {
-        const ingredientSummary = Object.keys(this.props.ingredients)
+        const ingredientSummary = Object.keys(props.ingredients)
             .map(igKey => {
                 return <li key={igKey}>
-                    <span style={{ textTransform: 'capitalize', padding: "0 4%" }}>{igKey}: {this.props.ingredients[igKey]}</span>
+                    <span style={{ textTransform: 'capitalize', padding: "0 4%" }}>{igKey}: {props.ingredients[igKey]}</span>
                 </li>
             });
 
@@ -23,22 +21,15 @@ class OrderSummary extends Component {
                 <ul className={styles.List}>
                     {ingredientSummary}
                 </ul>
-                <p className={styles.totalPrice}>Total Price: {this.props.price} &#8377;</p>
+                <p className={styles.totalPrice}>Total Price: {props.price} &#8377;</p>
                 <p className={styles.PText}>Continue to checkout?</p>
-                <Button btnType="Danger" clicked={this.props.PurchaseCanceled} >CANCEL</Button>
-                <Button btnType="Success" clicked={this.props.purchaseContinued} >CONTINUE</Button>
+                <Button btnType="Danger" clicked={props.PurchaseCanceled} >CANCEL</Button>
+                <Button btnType="Success" clicked={props.purchaseContinued} >CONTINUE</Button>
 
             </Au>
         )
-    }
+    
 }
-
-
-
-
-
-
-
 
 
 export default OrderSummary;
